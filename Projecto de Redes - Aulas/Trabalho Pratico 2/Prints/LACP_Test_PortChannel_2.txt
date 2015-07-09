@@ -1,0 +1,2 @@
+Desligar cabo porta 23 no switch Acesso
+Verificar estado do port-channel 2

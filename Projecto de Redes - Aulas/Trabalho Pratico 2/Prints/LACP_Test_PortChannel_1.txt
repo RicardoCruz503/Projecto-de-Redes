@@ -1,0 +1,2 @@
+Desligar cabo porta 22 no switch Acesso
+Verificar estado do port-channel 1

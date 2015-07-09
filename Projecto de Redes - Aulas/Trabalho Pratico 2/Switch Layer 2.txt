@@ -1,0 +1,184 @@
+Current configuration : 4190 bytes
+!
+version 12.2
+no service pad
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+!
+hostname Switch
+!
+boot-start-marker
+boot-end-marker
+!
+!
+!
+!
+no aaa new-model
+system mtu routing 1500
+!
+!
+no ip domain-lookup
+!
+!
+crypto pki trustpoint TP-self-signed-1020892160
+ enrollment selfsigned
+ subject-name cn=IOS-Self-Signed-Certificate-1020892160
+ revocation-check none
+ rsakeypair TP-self-signed-1020892160
+!
+!
+crypto pki certificate chain TP-self-signed-1020892160
+ certificate self-signed 01
+  3082023F 308201A8 A0030201 02020101 300D0609 2A864886 F70D0101 04050030
+  31312F30 2D060355 04031326 494F532D 53656C66 2D536967 6E65642D 43657274
+  69666963 6174652D 31303230 38393231 3630301E 170D3933 30333031 30303036
+  33385A17 0D323030 31303130 30303030 305A3031 312F302D 06035504 03132649
+  4F532D53 656C662D 5369676E 65642D43 65727469 66696361 74652D31 30323038
+  39323136 3030819F 300D0609 2A864886 F70D0101 01050003 818D0030 81890281
+  8100F4AF 1A400F76 76203D6A 9DA829EE BD5ABDDD 0237E40B E1EA602D 459923DA
+  4F16B2D1 85B85E1C D199AD6F 186AB702 9CBFE5C4 96824355 827D038A 1E7DB40C
+  D2762EE9 1B5C4601 402C9A47 3A9D5BE9 DCC8036D 69DA6DB4 4BCF673E 1AC8ABB5
+  4F084C2C C9D04FDF 3F132E38 AC1C37B6 D303965B 8408BEFC DE13A0E5 3258E30D
+  B1550203 010001A3 67306530 0F060355 1D130101 FF040530 030101FF 30120603
+  551D1104 0B300982 07537769 7463682E 301F0603 551D2304 18301680 1413E6A7
+  EF325AD3 3AEE2920 B376A62B C005C5F7 E1301D06 03551D0E 04160414 13E6A7EF
+  325AD33A EE2920B3 76A62BC0 05C5F7E1 300D0609 2A864886 F70D0101 04050003
+  81810048 6BBC8C6A DEEE2D48 ED7D3EC5 C9D9C896 AE8C6D09 C2CA73DC 13DFEC82
+  1D180D10 67156421 53032291 184CBEB8 5D1042AC A152D54C 03A94345 55803AA5
+  9748B4B0 75E5E260 6E4E7112 E946EBC7 A7C32FBB 754CC7C6 41B2573E F3300793
+  793BFDCE B3EA84E6 CE73AE41 8AA7D233 ED72B342 37823D06 5AE8A544 42918AC6 891C90
+  quit
+!
+!
+!
+!
+spanning-tree mode mst
+spanning-tree extend system-id
+!
+spanning-tree mst configuration
+ name region
+ instance 11 vlan 11
+ instance 12 vlan 12
+ instance 21 vlan 21
+ instance 22 vlan 22
+ instance 99 vlan 99
+!
+!
+vlan internal allocation policy ascending
+!
+!
+!
+interface Port-channel1
+ switchport mode trunk
+!
+interface Port-channel2
+ switchport mode trunk
+!
+interface FastEthernet0/1
+ switchport access vlan 11
+ switchport mode access
+!
+interface FastEthernet0/2
+ switchport access vlan 11
+ switchport mode access
+!
+interface FastEthernet0/3
+ switchport access vlan 11
+ switchport mode access
+!
+interface FastEthernet0/4
+ switchport access vlan 11
+ switchport mode access
+!
+interface FastEthernet0/5
+ switchport access vlan 11
+ switchport mode access
+!
+interface FastEthernet0/6
+ switchport access vlan 11
+ switchport mode access
+!
+interface FastEthernet0/7
+ switchport access vlan 11
+ switchport mode access
+!
+interface FastEthernet0/8
+ switchport access vlan 11
+ switchport mode access
+!
+interface FastEthernet0/9
+ switchport access vlan 11
+ switchport mode access
+!
+interface FastEthernet0/10
+ switchport access vlan 11
+ switchport mode access
+!
+interface FastEthernet0/11
+ switchport access vlan 11
+ switchport mode access
+!
+interface FastEthernet0/12
+ switchport access vlan 11
+ switchport mode access
+!
+interface FastEthernet0/13
+ switchport access vlan 12
+ switchport mode access
+!
+interface FastEthernet0/14
+ switchport access vlan 12
+ switchport mode access
+!
+interface FastEthernet0/15
+ switchport access vlan 12
+ switchport mode access
+!
+interface FastEthernet0/16
+!
+interface FastEthernet0/17
+!
+interface FastEthernet0/18
+!
+interface FastEthernet0/19
+!
+interface FastEthernet0/20
+!
+interface FastEthernet0/21
+ switchport mode trunk
+ channel-group 2 mode active
+!
+interface FastEthernet0/22
+ switchport mode trunk
+ channel-group 2 mode active
+!
+interface FastEthernet0/23
+ switchport mode trunk
+ channel-group 1 mode active
+!
+interface FastEthernet0/24
+ switchport mode trunk
+ channel-group 1 mode active
+!
+interface GigabitEthernet0/1
+!
+interface GigabitEthernet0/2
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+interface Vlan99
+ ip address 172.16.99.1 255.255.255.0
+!
+ip http server
+ip http secure-server
+!
+line con 0
+line vty 0 4
+ login
+line vty 5 15
+ login
+!
+end

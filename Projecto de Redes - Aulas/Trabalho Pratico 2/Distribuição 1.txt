@@ -1,0 +1,259 @@
+Building configuration...
+
+Current configuration : 6044 bytes
+!
+version 12.2
+no service pad
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+!
+hostname dist1
+!
+boot-start-marker
+boot-end-marker
+!
+enable secret 5 $1$JLhT$KNKxLeJsz4vCh6gERvvTb/
+!
+!
+!
+no aaa new-model
+system mtu routing 1500
+ip routing
+!
+ip dhcp pool vlan11
+   network 172.16.11.0 255.255.255.0
+   dns-server 8.8.8.8
+   default-router 172.16.11.254
+   lease 3
+!
+ip dhcp pool vlan12
+   network 172.16.12.0 255.255.255.0
+   dns-server 8.8.8.8
+   default-router 172.16.12.254
+   lease 3
+!
+ip dhcp pool vlan21
+   network 172.16.21.0 255.255.255.0
+   dns-server 8.8.8.8
+   default-router 172.16.21.254
+   lease 3
+!
+ip dhcp pool vlan22
+   network 172.16.22.0 255.255.255.0
+   dns-server 8.8.8.8
+   default-router 172.16.22.254
+   lease 3
+!
+!
+!
+!
+crypto pki trustpoint TP-self-signed-3208176640
+ enrollment selfsigned
+ subject-name cn=IOS-Self-Signed-Certificate-3208176640
+ revocation-check none
+ rsakeypair TP-self-signed-3208176640
+!
+!
+crypto pki certificate chain TP-self-signed-3208176640
+ certificate self-signed 01
+  3082023E 308201A7 A0030201 02020101 300D0609 2A864886 F70D0101 04050030
+  31312F30 2D060355 04031326 494F532D 53656C66 2D536967 6E65642D 43657274
+  69666963 6174652D 33323038 31373636 3430301E 170D3933 30333031 30303036
+  31385A17 0D323030 31303130 30303030 305A3031 312F302D 06035504 03132649
+  4F532D53 656C662D 5369676E 65642D43 65727469 66696361 74652D33 32303831
+  37363634 3030819F 300D0609 2A864886 F70D0101 01050003 818D0030 81890281
+  8100EA83 BD856140 F0457510 DF4B2DCD EF0A23FF AC0DCEE0 3351C258 78312C5B
+  F184BE7E 8EFB3FAF EE117785 161E2912 D043F4D0 68EA2ED4 22299662 580C3DFC
+  BFDEB0E9 EC979D49 72034A8F 2A10E42B 4083BF88 35CC4C04 7625296A 83534001
+  CDA8B3A9 0D5F5942 765544A9 333C1C9E 4F7AA30C 0F3C0718 6DE8C4CD B77F84D4
+  F6E50203 010001A3 66306430 0F060355 1D130101 FF040530 030101FF 30110603
+  551D1104 0A300882 06646973 74312E30 1F060355 1D230418 30168014 BED6ABA9
+  16C505CE 54561DBE E7E65FC7 02AA6FF3 301D0603 551D0E04 160414BE D6ABA916
+  C505CE54 561DBEE7 E65FC702 AA6FF330 0D06092A 864886F7 0D010104 05000381
+  8100D95D 15331B37 5E10249F B326677A 9E1217B2 5475F099 497AD58D ED05D4EF
+  EE5A005C 0651DEE0 41B7FECE D0191678 BED2DBB9 FA1BBB63 E8D5CAD7 91DCAF0E
+  025B1015 55A67D6B F22FA6B1 5A251835 7425CE89 9334479E 7EB04513 40EBB98F
+  BDC206BC 850B6CA1 20262B5B 74FC2E11 F0292663 833F00DA AF31C6DE 9E1248A7 98E8
+  quit
+!
+!
+!
+!
+spanning-tree mode mst
+spanning-tree extend system-id
+!
+spanning-tree mst configuration
+ name region
+ instance 11 vlan 11
+ instance 12 vlan 12
+ instance 21 vlan 21
+ instance 22 vlan 22
+ instance 99 vlan 99
+!
+spanning-tree mst 11,21,99 priority 4096
+spanning-tree mst 12,22 priority 8192
+!
+vlan internal allocation policy ascending
+!
+!
+!
+!
+interface Port-channel1
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 11,12,99
+ switchport mode trunk
+!
+interface Port-channel2
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 21,22,99
+ switchport mode trunk
+!
+interface Port-channel12
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 11,12,21,22,99
+ switchport mode trunk
+!
+interface FastEthernet0/1
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 11,12,99
+ switchport mode trunk
+ channel-group 1 mode active
+!
+interface FastEthernet0/2
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 11,12,99
+ switchport mode trunk
+ channel-group 1 mode active
+!
+interface FastEthernet0/3
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 21,22,99
+ switchport mode trunk
+ channel-group 2 mode active
+!
+interface FastEthernet0/4
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 21,22,99
+ switchport mode trunk
+ channel-group 2 mode active
+!
+interface FastEthernet0/5
+!
+interface FastEthernet0/6
+!
+interface FastEthernet0/7
+!
+interface FastEthernet0/8
+!
+interface FastEthernet0/9
+!
+interface FastEthernet0/10
+!
+interface FastEthernet0/11
+!
+interface FastEthernet0/12
+ switchport access vlan 111
+ switchport mode access
+!
+interface FastEthernet0/13
+ switchport access vlan 112
+ switchport mode access
+!
+interface FastEthernet0/14
+!
+interface FastEthernet0/15
+!
+interface FastEthernet0/16
+!
+interface FastEthernet0/17
+!
+interface FastEthernet0/18
+!
+interface FastEthernet0/19
+!
+interface FastEthernet0/20
+!
+interface FastEthernet0/21
+!
+interface FastEthernet0/22
+!
+interface FastEthernet0/23
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 11,12,21,22,99
+ switchport mode trunk
+ channel-group 12 mode active
+!
+interface FastEthernet0/24
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 11,12,21,22,99
+ switchport mode trunk
+ channel-group 12 mode active
+!
+interface GigabitEthernet0/1
+!
+interface GigabitEthernet0/2
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+interface Vlan11
+ ip address 172.16.11.1 255.255.255.0
+ standby 0 ip 172.16.11.254
+ standby 0 preempt delay minimum 300
+!
+interface Vlan12
+ ip address 172.16.12.1 255.255.255.0
+ standby 0 ip 172.16.12.254
+ standby 0 priority 10
+ standby 0 preempt delay minimum 300
+!
+interface Vlan21
+ ip address 172.16.21.1 255.255.255.0
+ standby 0 ip 172.16.21.254
+ standby 0 preempt delay minimum 300
+!
+interface Vlan22
+ ip address 172.16.22.1 255.255.255.0
+ standby 0 ip 172.16.22.254
+ standby 0 priority 10
+ standby 0 preempt delay minimum 300
+!
+interface Vlan99
+ ip address 172.16.99.100 255.255.255.0
+!
+interface Vlan111
+ ip address 10.10.10.1 255.255.255.252
+!
+interface Vlan112
+ ip address 10.10.10.13 255.255.255.252
+!
+router ospf 10
+ log-adjacency-changes
+ network 10.10.10.0 0.0.0.3 area 0
+ network 10.10.10.12 0.0.0.3 area 0
+ network 172.16.11.0 0.0.0.255 area 0
+ network 172.16.12.0 0.0.0.255 area 0
+ network 172.16.21.0 0.0.0.255 area 0
+ network 172.16.22.0 0.0.0.255 area 0
+!
+ip classless
+ip http server
+ip http secure-server
+!
+!
+!
+!
+!
+line con 0
+line vty 0 4
+ password cisco
+ login
+ transport input telnet
+line vty 5 15
+ password cisco
+ login
+ transport input telnet
+!
+end
