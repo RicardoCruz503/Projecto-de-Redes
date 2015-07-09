@@ -1,0 +1,25 @@
+Tarefa 5: Configure ACLs de acordo com os requisitos seguintes:
+ 
+ Deve existir conectividade entre os dispositivos das redes funcionários e alunos.
+ router(config)#access-list 110 permit ip 10.100.5.0 0.0.0.255 10.200.5.0 0.0.0.255
+ router(config)#access-list 110 permit ip 10.200.5.0 0.0.0.255 10.100.5.0 0.0.0.255
+ 
+ Nao existe conectividade entre os dispositivos da rede guest e os dispositivos das 
+redes funcionário e alunos.
+ router(config)#access-list 110 deny ip 10.30.5.0 0.0.0.255 10.100.5.0 0.0.0.255 -- Entre os dispositivos da rede Guest e rede Funcionarios
+ router(config)#access-list 110 deny ip 10.30.5.0 0.0.0.255 10.200.5.0 0.0.0.255 -- Entre os dispositivos da rede Guest e rede Alunos
+ router(config)#access-list 110 deny ip 10.100.5.0 0.0.0.255 10.30.5.0 0.0.0.255 -- Entre os dispositivos da rede Funcionarios e rede Guest
+ router(config)#access-list 110 deny ip 10.200.5.0 0.0.0.255 10.30.5.0 0.0.0.255 -- Entre os dispositivos da rede Alunos e rede Guest
+
+ 
+ Apenas deve ser permitido aos dispositivos das rede de gestao o acesso remoto
+aos dispositivos de rede.
+ router(config)#access-list 110 permit ip 10.100.5.0 0.0.0.255 10.200.5.0 0.0.0.255
+ 
+ Apenas e suportado o protocolo de encaminhamento OSPF.
+ router(config)#access-list 105 permit ospf any any
+
+
+inteface fa 0/0.10
+ip access-group 110 in
+ip access-group 110 out

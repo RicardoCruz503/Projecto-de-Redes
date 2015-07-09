@@ -1,0 +1,18 @@
+Router1#show ip int brief
+Interface                  IP-Address      OK? Method Status                Prot
+ocol
+FastEthernet0/0            unassigned      YES manual up                    up
+
+FastEthernet0/0.10         10.100.5.254    YES manual up                    up
+
+FastEthernet0/0.20         10.200.5.254    YES manual up                    up
+
+FastEthernet0/0.30         10.30.5.254     YES manual up                    up
+
+FastEthernet0/0.99         10.99.5.254     YES manual up                    up
+
+FastEthernet0/1            192.168.1.5     YES manual up                    up
+
+Serial0/0/0                unassigned      YES manual administratively down down
+
+Serial0/0/1                unassigned      YES manual administratively down down

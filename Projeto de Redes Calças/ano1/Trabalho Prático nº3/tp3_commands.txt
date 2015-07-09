@@ -1,0 +1,75 @@
+TAREFA 1 - 
+
+--> Basicamente temos que ter a ficha 2 bem resolvida para prosseguir para a ficha 3
+
+
+TAREFA 2 - DHCP relay
+
+Router>enable 
+Router#conf term 
+Router(config)#no ip dhcp pool vlan99 
+Router(config)#no ip dhcp pool vlan10 
+Router(config)#no ip dhcp pool vlan20 
+Router(config)#no ip dhcp pool vlan30
+
+Router#conf t
+Router1(config)#interface FastEthernet0/0 .10
+Router1(config-subif)#ip helper-address 172.16.10.10
+Router1(config)#exit
+Router1(config)#interface FastEthernet0/0 .20
+
+Router1(config-subif)#ip helper-address 172.16.10.10
+Router1(config)#exit
+
+Router1(config)#interface FastEthernet0/0 .30
+
+Router1(config-subif)#ip helper-address 172.16.10.10
+Router1(config)#exit
+
+Router1(config)#interface FastEthernet0/0.10
+
+
+Router1(config-subif)#encapsulation dot1Q 10
+Router1(config-subif)#ip address 10.10.1.254 255.255.255.0
+Router1(config-subif)# ip helper-address 172.16.10.10
+
+
+Router1(config)#interface FastEthernet0/0.20
+
+
+Router1(config-subif)#encapsulation dot1Q 20
+ Router1(config-subif)#ip address 10.20.1.254 255.255.255.0
+Router1(config-subif)# ip helper-address 172.16.10.10
+
+Router1(config)#interface FastEthernet0/0.30
+Router1(config-subif)# encapsulation dot1Q 30
+
+Router1(config-subif)#ip address 10.30.1.254 255.255.255.0
+Router1(config-subif)# ip helper-address 172.16.10.10
+
+###########################################################################################
+
+TAREFA 3 - Autenticação 802.1x e atribuição dinâmica de VLANs
+
+Switch#conf t
+Switch1(config)#aaa new model
+
+Switch1(config)#aaa authentication dot1x default group radius
+Switch1(config)#aaa authorization network default group radius
+
+Switch1(config)#dot1x system auth control
+
+Switch1(config-if)#radius  server  host  172.16.10.10  auth_port  1812  acct_port  1813  key labredes
+
+Switch#conf t
+Switch1(config)#interface fastEthernet 0/3
+Switch1(config-if)#switchport mode access
+Switch1(config-if)#dot1x port control auto
+Switch1(config-if)#spanning_tree port_fast
+Switch1(config-if)#end
+
+
+
+
+
+

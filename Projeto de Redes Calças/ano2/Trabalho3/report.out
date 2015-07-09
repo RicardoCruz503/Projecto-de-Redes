@@ -1,0 +1,17 @@
+\BOOKMARK [1][-]{section.1}{Objectivos}{}% 1
+\BOOKMARK [1][-]{section.2}{Topologia}{}% 2
+\BOOKMARK [1][-]{section.3}{Tabela das Vlans}{}% 3
+\BOOKMARK [1][-]{section.4}{Configura\347\365es}{}% 4
+\BOOKMARK [2][-]{subsection.4.1}{Configura\347\365es iniciais}{section.4}% 5
+\BOOKMARK [2][-]{subsection.4.2}{Configura\347\365es b\341sicas}{section.4}% 6
+\BOOKMARK [2][-]{subsection.4.3}{Configura\347\343o do Router e do Switch.}{section.4}% 7
+\BOOKMARK [3][-]{subsubsection.4.3.1}{Configura\347\343o do Router}{subsection.4.3}% 8
+\BOOKMARK [3][-]{subsubsection.4.3.2}{Configura\347\343o do Switch}{subsection.4.3}% 9
+\BOOKMARK [2][-]{subsection.4.4}{visualisa\347\343o das configura\347\365es do switch e do router}{section.4}% 10
+\BOOKMARK [3][-]{subsubsection.4.4.1}{Router}{subsection.4.4}% 11
+\BOOKMARK [3][-]{subsubsection.4.4.2}{Switch}{subsection.4.4}% 12
+\BOOKMARK [1][-]{section.5}{Demonstra\347\365es}{}% 13
+\BOOKMARK [2][-]{subsection.5.1}{Demonstra\347\343o Radius}{section.5}% 14
+\BOOKMARK [2][-]{subsection.5.2}{Ip's e Interfaces do ebits}{section.5}% 15
+\BOOKMARK [3][-]{subsubsection.5.2.1}{Interface ebits}{subsection.5.2}% 16
+\BOOKMARK [3][-]{subsubsection.5.2.2}{Ip cliente e servidor}{subsection.5.2}% 17

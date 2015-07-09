@@ -1,0 +1,14 @@
+\select@language {portuguese}
+\contentsline {section}{\numberline {1}Objectivos}{2}{section.1}
+\contentsline {section}{\numberline {2}Topologia}{2}{section.2}
+\contentsline {section}{\numberline {3}Tabela das Vlans}{3}{section.3}
+\contentsline {section}{\numberline {4}Configura\IeC {\c c}\IeC {\~o}es}{3}{section.4}
+\contentsline {subsection}{\numberline {4.1}Configura\IeC {\c c}\IeC {\~o}es iniciais}{3}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}Configura\IeC {\c c}\IeC {\~o}es b\IeC {\'a}sicas}{3}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}Configura\IeC {\c c}\IeC {\~a}o das interfaces dos Routers.}{4}{subsection.4.3}
+\contentsline {subsubsection}{\numberline {4.3.1}Configura\IeC {\c c}\IeC {\~a}o do DHCP}{5}{subsubsection.4.3.1}
+\contentsline {subsubsection}{\numberline {4.3.2}Configura\IeC {\c c}\IeC {\~a}o das Vlan's}{5}{subsubsection.4.3.2}
+\contentsline {subsection}{\numberline {4.4}Demonstra\IeC {\c c}\IeC {\~a}o de pings}{6}{subsection.4.4}
+\contentsline {subsection}{\numberline {4.5}Demonstra\IeC {\c c}\IeC {\~a}o das interfaces e de vlans atribu\IeC {\'\i }das}{6}{subsection.4.5}
+\contentsline {subsection}{\numberline {4.6}ACl's}{8}{subsection.4.6}
+\contentsline {subsection}{\numberline {4.7}Show run do switch e do router}{8}{subsection.4.7}

@@ -1,0 +1,24 @@
+Router>enable
+Router#configure terminal
+Router(config)#ip dhcp pool vlan99
+Router1(dhcp-config)#network 10.99.5.0 255.255.255.0
+Router1(dhcp-config)#default-router 10.99.1.254
+Router1(dhcp-config)#lease 0 8
+Router1(dhcp-config)#exit
+
+Router(config)#ip dhcp pool vlan10
+Router1(dhcp-config)#network 10.100.5.0 255.255.255.0
+Router1(dhcp-config)#default-router 10.10.1.254
+Router1(dhcp-config)#lease 0 8
+Router1(dhcp-config)#exit
+
+Router(config)#ip dhcp pool vlan20
+Router1(dhcp-config)#network 10.200.5.0 255.255.255.0
+Router1(dhcp-config)#default-router 10.20.1.254
+Router1(dhcp-config)#lease 0 8
+Router1(dhcp-config)#exit
+
+Router(config)#ip dhcp pool vlan30
+Router1(dhcp-config)#network 10.30.5.0 255.255.255.0
+Router1(dhcp-config)#lease 0 8
+Router1(dhcp-config)#exit

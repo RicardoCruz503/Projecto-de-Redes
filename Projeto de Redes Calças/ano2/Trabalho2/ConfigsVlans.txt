@@ -1,0 +1,36 @@
+S1#configure terminal
+S1(config)#vlan 10
+S1(config-vlan)#name funcionarios 
+S1(config-vlan)#end 
+S1(config)#vlan 20 
+S1(config-vlan)#name alunos
+S1(config-vlan)#end
+
+S1(config)#vlan 30
+S1(config-vlan)#name guest
+S1(config-vlan)#end
+   
+S1(config)#vlan 99
+S1(config-vlan)#name gestao
+S1(config-vlan)#end
+   
+S1#configure terminal
+S1(config)#interface FastEthernet0/1
+S1(config-if)#switchport mode trunk
+S1(config-if)#switchport trunk allowed vlan 10,20,99
+S1(config-if)#end
+
+S1(config)#interface range FastEthernet0/2-8
+S1(config-if)#switchport mode access
+S1(config-if)#switchport access vlan 10
+S1(config-if)#exit
+
+S1(config)# interface range FastEthernet0/9-16
+S1(config-if)#switchport mode access
+S1(config-if)#switchport access vlan 20
+S1(config-if)#exit
+
+S1(config)#interface range FastEthernet0/17-23
+S1(config-if)#switchport mode access
+S1(config-if)#switchport access vlan 30
+S1(config-if)#exit

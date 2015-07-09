@@ -1,0 +1,13 @@
+\BOOKMARK [1][-]{section.1}{Objectivos}{}% 1
+\BOOKMARK [1][-]{section.2}{Topologia}{}% 2
+\BOOKMARK [1][-]{section.3}{Tabela das Vlans}{}% 3
+\BOOKMARK [1][-]{section.4}{Configura\347\365es}{}% 4
+\BOOKMARK [2][-]{subsection.4.1}{Configura\347\365es iniciais}{section.4}% 5
+\BOOKMARK [2][-]{subsection.4.2}{Configura\347\365es b\341sicas}{section.4}% 6
+\BOOKMARK [2][-]{subsection.4.3}{Configura\347\343o das interfaces dos Routers.}{section.4}% 7
+\BOOKMARK [3][-]{subsubsection.4.3.1}{Configura\347\343o do DHCP}{subsection.4.3}% 8
+\BOOKMARK [3][-]{subsubsection.4.3.2}{Configura\347\343o das Vlan's}{subsection.4.3}% 9
+\BOOKMARK [2][-]{subsection.4.4}{Demonstra\347\343o de pings}{section.4}% 10
+\BOOKMARK [2][-]{subsection.4.5}{Demonstra\347\343o das interfaces e de vlans atribu\355das}{section.4}% 11
+\BOOKMARK [2][-]{subsection.4.6}{ACl's}{section.4}% 12
+\BOOKMARK [2][-]{subsection.4.7}{Show run do switch e do router}{section.4}% 13

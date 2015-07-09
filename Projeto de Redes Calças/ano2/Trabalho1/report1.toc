@@ -1,0 +1,12 @@
+\select@language {portuguese}
+\contentsline {section}{\numberline {1}Introdu\IeC {\c c}\IeC {\~a}o}{2}{section.1}
+\contentsline {section}{\numberline {2}Objectivos}{2}{section.2}
+\contentsline {section}{\numberline {3}Topologia}{2}{section.3}
+\contentsline {section}{\numberline {4}Diagrama De Rede}{3}{section.4}
+\contentsline {section}{\numberline {5}Linhas de Vista \& Link Bubget}{3}{section.5}
+\contentsline {subsection}{\numberline {5.1}Linhas de Vista}{3}{subsection.5.1}
+\contentsline {subsection}{\numberline {5.2}Link Bubget}{3}{subsection.5.2}
+\contentsline {subsubsection}{\numberline {5.2.1}C\IeC {\'a}lculo do link budget (balan\IeC {\c c}o de pot\IeC {\^e}ncias)}{3}{subsubsection.5.2.1}
+\contentsline {section}{\numberline {6}Resolu\IeC {\c c}\IeC {\~a}o Linhas de Vista}{4}{section.6}
+\contentsline {section}{\numberline {7}Resolu\IeC {\c c}\IeC {\~a}o Link Budget}{8}{section.7}
+\contentsline {section}{\numberline {8}Gloss\IeC {\'a}rio}{9}{section.8}

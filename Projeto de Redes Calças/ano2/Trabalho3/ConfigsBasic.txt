@@ -1,0 +1,30 @@
+Router>enable                                                                                                                             
+Router#configure terminal                                                                                                                          
+Router(config)#hostname Router1                                                                                           
+Router1(config)#no ip domain lookup                                                                             
+Router1(config)#enable secret cisco                                                            
+Router1(config)#line console 0                                       	                      
+Router1(config-line)#password cisco                                                                                                       
+Router1(config-line)#login                                                                                                                
+Router1(config-line)#exit                                                                                                                 
+Router1(config)#line vty 0 4                                                                        
+Router1(config-line)#password cisco                                                                                                       
+Router1(config-line)#login                                                                                                                
+Router1(config-line)#exit                                                                                                                 
+Router1(config)#banner motd “Hello Router1”                                                                                               
+Router1(config)#exit
+                                                                                                                     
+Switch>enable                                                                                                                             
+Switch#configure terminal															      
+Switch(config)#hostname S1                                      						      
+S1(config)#enable secret class                                                                                                                                                                                                             
+S1(config)#line console 0			      
+S1(config-line)#password class													      
+S1(config-line)#login														      
+S1(config-line)#exit														      
+S1(config)#line vty 0 4 		      
+S1(config-line)#password class													      
+S1(config-line)#login														      
+S1(config-line)#exit														      
+S1(config)#exit														      
+S1#copy running startup-config                                        

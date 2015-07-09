@@ -1,0 +1,119 @@
+Building configuration...
+
+Current configuration : 2066 bytes
+!
+! Last configuration change at 20:38:17 UTC Mon Apr 8 2013
+!
+version 15.0
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+!
+hostname Router1
+!
+boot-start-marker
+boot-end-marker
+!
+enable secret cisco
+!
+no aaa new-model
+memory-size iomem 10
+!
+no ipv6 cef
+ip source-route
+ip cef
+!
+!
+!
+ip dhcp pool vlan99
+   network 10.99.6.0 255.255.255.0
+   default-router 10.99.6.254
+   lease 0 8
+!
+ip dhcp pool vlan10
+   network 10.10.6.0 255.255.255.0
+   default-router 10.10.6.254
+   lease 0 8
+!
+ip dhcp pool vlan20
+   network 10.20.6.0 255.255.255.0
+   default-router 10.20.6.254
+   lease 0 8
+!
+ip dhcp pool vlan30
+   network 10.30.6.0 255.255.255.0
+   default-router 10.30.6.254
+   lease 0 8
+!
+!
+no ip domain lookup
+multilink bundle-name authenticated
+!
+!
+!
+license udi pid CISCO1921/K9 sn FCZ1453C28X
+!
+!
+!
+!
+!
+!
+!
+!
+interface FastEthernet0/0
+ no ip address
+ duplex auto
+ speed auto
+!
+interface FastEthernet0/0.10
+ encapsulation dot1Q 10
+ ip address 10.10.6.254 255.255.255.0
+!
+interface FastEthernet0/0.20
+ encapsulation dot1Q 20
+ ip address 10.20.6.254 255.255.255.0
+!
+interface FastEthernet0/0.30
+ encapsulation dot1Q 30
+ ip address 10.30.6.254 255.255.255.0
+!
+interface FastEthernet0/0.99
+ encapsulation dot1Q 99
+ ip address 10.99.6.254 255.255.255.0
+!
+interface FastEthernet0/1
+ ip address 192.168.1.6 255.255.255.0
+ shutdown
+ duplex auto
+ speed auto
+!
+router ospf 1
+ log-adjacency-changes
+ network 10.10.6.0 0.0.0.255 area 1
+ network 10.20.6.0 0.0.0.255 area 1
+ network 10.30.6.0 0.0.0.255 area 1
+ network 10.99.6.0 0.0.0.255 area 1
+ network 192.168.1.0 0.0.0.255 area 0
+ network 192.168.6.0 0.0.0.255 area 0
+!
+ip forward-protocol nd
+!
+no ip http server
+no ip http secure-server
+!
+!
+!
+!
+!
+control-plane
+!
+banner motd ^CRouter1^C
+!
+line con 0
+line aux 0
+line vty 0 4
+ password cisco
+ login
+!
+scheduler allocate 20000 1000
+end

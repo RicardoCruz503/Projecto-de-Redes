@@ -1,0 +1,64 @@
+# CONFIGURAÇÃO DE VLANS
+*
+*   1. Criação das vlans
+*   Switch#conf t
+*   Switch1(config)#vlan 10
+*   Switch1(config-vlan)#name Funcionarios 
+*   Switch1(config-vlan)#end 
+
+*   Switch1(config)#vlan 20
+*   Switch1(config-vlan)#name Alunos -- atribuir um nome à VLAN
+*   Switch1(config-vlan)#end
+*
+*   Switch1(config)#vlan 30
+*   Switch1(config-vlan)#name guest
+*   Switch1(config-vlan)#end
+*   
+*   Switch1(config)#vlan 99
+*   Switch1(config-vlan)#name Gestao
+*   Switch1(config-vlan)#end
+*
+*   2. Atribuição das portas às Vlans
+	Switch#conf t
+*   Switch1(config)# interface range FastEthernet0/0-12
+*   Switch1(config-if)#switchport mode access
+*   Switch1(config-if)#switchport access vlan 10
+	
+	2.1. Definição da porta trunk
+*   Switch1(config-if)#switchport mode trunk
+*   Switch1(config-if)#switchport trunk allowed vlan 10,20,99
+*   Switch1(config-if)#end
+
+*   # Configurar as ACLs
+    router(config)#access-list 10 permit/deny [Endereço IP]  ---- standard
+    router(config)#access-list 110 permit/deny [Protocolo] [Endereço IP] [wildcard]
+	
+	Tarefa 5: Configure ACLs de acordo com os requisitos seguintes:
+	
+	Deve existir conectividade entre os dispositivos das redes funcionários e alunos.
+	router(config)#access-list 110 permit ip 10.100.5.0 0.0.0.255 10.200.5.0 0.0.0.255
+	router(config)#access-list 110 permit ip 10.200.5.0 0.0.0.255 10.100.5.0 0.0.0.255
+	
+	Não existe conectividade entre os dispositivos da rede guest e os dispositivos das 
+redes funcionário e alunos.
+	router(config)#access-list 110 deny ip 10.30.5.0 0.0.0.255 10.100.5.0 0.0.0.255 -- Entre os dispositivos da rede Guest e rede Funcionarios
+	router(config)#access-list 110 deny ip 10.30.5.0 0.0.0.255 10.200.5.0 0.0.0.255 -- Entre os dispositivos da rede Guest e rede Alunos
+	router(config)#access-list 110 deny ip 10.100.5.0 0.0.0.255 10.30.5.0 0.0.0.255 -- Entre os dispositivos da rede Funcionarios e rede Guest
+	router(config)#access-list 110 deny ip 10.200.5.0 0.0.0.255 10.30.5.0 0.0.0.255 -- Entre os dispositivos da rede Alunos e rede Guest
+
+	
+	Apenas deve ser permitido aos dispositivos das rede de gestão o acesso remoto
+aos dispositivos de rede.
+	router(config)#access-list 110 permit ip 10.100.5.0 0.0.0.255 10.200.5.0 0.0.0.255
+	
+	Apenas é suportado o protocolo de encaminhamento OSPF.
+	router(config)#access-list 105 permit ospf any any
+
+
+
+inteface fa 0/0.10
+ip access-group 110 in
+ip access-group 110 out
+
+
+

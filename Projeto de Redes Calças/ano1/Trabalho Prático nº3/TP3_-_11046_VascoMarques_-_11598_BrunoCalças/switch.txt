@@ -1,0 +1,164 @@
+Building configuration...
+
+Current configuration : 3766 bytes
+!
+version 12.2
+no service pad
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+!
+hostname switch1
+!
+boot-start-marker
+boot-end-marker
+!
+enable secret cisco
+!
+aaa new-model
+!
+!
+aaa authentication dot1x default group radius
+aaa authorization network default group radius
+!
+!
+!
+aaa session-id common
+system mtu routing 1500
+ip subnet-zero
+!
+!
+!
+!
+crypto pki trustpoint TP-self-signed-3969144448
+ enrollment selfsigned
+ subject-name cn=IOS-Self-Signed-Certificate-3969144448
+ revocation-check none
+ rsakeypair TP-self-signed-3969144448
+!
+!
+crypto pki certificate chain TP-self-signed-3969144448
+ certificate self-signed 01
+  30820240 308201A9 A0030201 02020101 300D0609 2A864886 F70D0101 04050030
+  31312F30 2D060355 04031326 494F532D 53656C66 2D536967 6E65642D 43657274
+  69666963 6174652D 33393639 31343434 3438301E 170D3933 30333031 30303031
+  33365A17 0D323030 31303130 30303030 305A3031 312F302D 06035504 03132649
+  4F532D53 656C662D 5369676E 65642D43 65727469 66696361 74652D33 39363931
+  34343434 3830819F 300D0609 2A864886 F70D0101 01050003 818D0030 81890281
+  8100DA4A 5F45DBBC 67738E96 D5D62D83 A814A4AA 4B9139C7 E57E94C1 E0C54C90
+  0330456B 870664DD A52D6DC6 2E5AED65 D70AF0C9 969BCA2A CFC0CD34 D467DD30
+  423BDF55 E093A225 69E621E4 0075CC07 A95429E2 58C77020 1ED26A97 92D13EAB
+  A5E98757 D2722358 616F79B8 001612F4 2A282183 B31BAE26 E1B3F967 468F0EFE
+  60010203 010001A3 68306630 0F060355 1D130101 FF040530 030101FF 30130603
+  551D1104 0C300A82 08737769 74636831 2E301F06 03551D23 04183016 801479FA
+  F6966C06 1D960AA7 EFA22F2A F0AD358B D8BA301D 0603551D 0E041604 1479FAF6
+  966C061D 960AA7EF A22F2AF0 AD358BD8 BA300D06 092A8648 86F70D01 01040500
+  03818100 36997744 542F5F56 EA30C649 C8889163 4CC84ECE 0FCE609A 8A9783E6
+  16AF17EC C498FA22 36665F83 71B9DB8E 245A5B3F E00BE56E 5A6A01D8 60383DE3
+  5B1E6120 1902BB63 533B32E9 A0FB8DEB C9A3F13A E1979FFE 1DF26C39 6F50BAC0
+  E8FACEFD 5419D7FE 26012E06 A24BF0C3 3941B220 82487B4E 168D2C90 FDF64030 6A3B39
+0C
+  quit
+!
+!
+dot1x system-auth-control
+!
+!
+!
+spanning-tree mode pvst
+spanning-tree extend system-id
+!
+vlan internal allocation policy ascending
+!
+!
+interface FastEthernet0/1
+ switchport access vlan 10
+ switchport mode access
+ authentication port-control auto
+ dot1x pae authenticator
+!
+interface FastEthernet0/2
+ switchport mode access
+!
+interface FastEthernet0/3
+ switchport mode access
+!
+interface FastEthernet0/4
+ switchport mode access
+!
+interface FastEthernet0/5
+ switchport mode access
+!
+interface FastEthernet0/6
+ switchport mode access
+!
+interface FastEthernet0/7
+ switchport mode access
+!
+interface FastEthernet0/8
+ switchport mode access
+!
+interface FastEthernet0/9
+ switchport mode access
+!
+interface FastEthernet0/10
+ switchport mode access
+!
+interface FastEthernet0/11
+ switchport mode access
+!
+interface FastEthernet0/12
+ switchport mode access
+!
+interface FastEthernet0/13
+ switchport mode access
+!
+interface FastEthernet0/14
+ switchport mode access
+!
+interface FastEthernet0/15
+ switchport trunk allowed vlan 10,20,99
+ switchport mode trunk
+!
+interface FastEthernet0/16
+!
+interface FastEthernet0/17
+!
+interface FastEthernet0/18
+!
+interface FastEthernet0/19
+!
+interface FastEthernet0/20
+!
+interface FastEthernet0/21
+!
+interface FastEthernet0/22
+!
+interface FastEthernet0/23
+!
+interface FastEthernet0/24
+!
+interface GigabitEthernet0/1
+!
+interface GigabitEthernet0/2
+!
+interface Vlan1
+ no ip address
+ no ip route-cache
+!
+interface Vlan99
+ ip address 10.99.6.100 255.255.255.0
+ no ip route-cache
+!
+ip default-gateway 10.99.6.254
+ip http server
+ip http secure-server
+radius-server host 172.16.10.10 auth-port 1812 acct-port 1813 key labredes
+!
+control-plane
+!
+!
+line con 0
+line vty 5 15
+!
+end

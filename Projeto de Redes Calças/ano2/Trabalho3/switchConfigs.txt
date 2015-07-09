@@ -1,0 +1,22 @@
+S1(config)#interface range fastEthernet 0/1-24
+S1(config-if-range)#exit
+S1(config)#interface range fastEthernet 0/2-24
+S1(config-if-range)#switchport mode access
+S1(config-if-range)#switchport access vlan 1
+S1(config-if-range)#exit
+S1(config)#interface  fastEthernet 0/1
+S1(config-if)#switchport trunk allowed vlan 1,10,20,30,99
+S1(config-if)#exit
+
+*****************************************************
+S1(config)#aaa authentication dot1x default group radius
+S1(config)#interface range fastEthernet 0/2-24
+S1(config-if-range)#dot1x port-control auto
+S1(config-if-range)#exit
+S1(config)#radius-server host 172.16.10.10 auth-port 1812 acct-port 1813 key password
+
+*******************************************************
+S1(config)#interface vlan 99
+S1(config-if)#ip address 10.99.5.100 255.255.255.0
+S1(config-if)#no shutdown
+S1(config-if)#end

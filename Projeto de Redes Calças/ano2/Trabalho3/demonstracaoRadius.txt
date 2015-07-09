@@ -1,0 +1,13 @@
+*Mar  1 02:00:47.522: %AUTHMGR-5-START: Starting 'dot1x' for client (38ea.a7d9.2
+6b3) on Interface Fa0/3 AuditSessionID 0A63056400000006006C73FF
+*Mar  1 02:00:47.673: %DOT1X-5-SUCCESS: Authentication successful for client (38
+ea.a7d9.26b3) on Interface Fa0/3 AuditSessionID
+*Mar  1 02:00:47.673: %AUTHMGR-7-RESULT: Authentication result 'success' from 'd
+ot1x' for client (38ea.a7d9.26b3) on Interface Fa0/3 AuditSessionID 0A6305640000
+0006006C73FF
+*Mar  1 02:00:47.673: %AUTHMGR-5-VLANASSIGN: VLAN 20 assigned to Interface Fa0/3
+ AuditSessionID 0A63056400000006006C73FF
+*Mar  1 02:00:48.696: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthern
+et0/3, changed state to up
+*Mar  1 02:00:48.721: %AUTHMGR-5-SUCCESS: Authorization succeeded for client (38
+ea.a7d9.26b3) on Interface Fa0/3 AuditSessionID 0A63056400000006006C73FF

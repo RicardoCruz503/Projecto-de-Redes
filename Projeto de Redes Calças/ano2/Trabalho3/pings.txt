@@ -1,0 +1,14 @@
+S1#ping 10.99.5.254
+
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 10.99.5.254, timeout is 2 seconds:
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 1/203/1006 ms
+S1#
+S1#ping 172.16.10.10
+
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 172.16.10.10, timeout is 2 seconds:
+.....
+Success rate is 0 percent (0/5)
+e estamos ligados :)

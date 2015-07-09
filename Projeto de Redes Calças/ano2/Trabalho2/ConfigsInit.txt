@@ -1,0 +1,11 @@
+ROUTER:
+Router>enable
+Router#configure terminal
+Router(config)#erase startup-config
+Router(config)#reload
+
+SWITCH:
+Switch>enable
+Switch#delete flash:vlans.dat 
+Switch#erase startup-config
+Switch#reload
